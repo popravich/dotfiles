@@ -10,3 +10,6 @@
 [submodule "deps/vim-less"]
 	path = deps/vim-less
 	url = git://github.com/groenewege/vim-less.git
+[submodule "deps/vim-markdown"]
+	path = deps/vim-markdown
+	url = git://github.com/hallison/vim-markdown.git

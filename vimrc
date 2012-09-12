@@ -3,8 +3,7 @@ set softtabstop=4
 set expandtab
 set shiftwidth=4
 
-
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
 " setup color scheme and font
 colorscheme desert
