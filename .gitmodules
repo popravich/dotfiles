@@ -1,3 +1,6 @@
 [submodule "deps/pathogen"]
 	path = deps/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "deps/vim-coffee-script"]
+	path = deps/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
