@@ -4,7 +4,7 @@ Just my vim config
 Install
 -------
 
-put repository to `.vim` directory.
+    git clone git://github.com/popravich/vim.git ~/.vim
 
 to enable add following lines to `~/.vimrc`:
 
