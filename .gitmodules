@@ -4,3 +4,9 @@
 [submodule "deps/vim-coffee-script"]
 	path = deps/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "deps/vim-fugitive"]
+	path = deps/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "deps/vim-less"]
+	path = deps/vim-less
+	url = git://github.com/groenewege/vim-less.git
