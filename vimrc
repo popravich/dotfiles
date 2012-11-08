@@ -4,6 +4,9 @@ set expandtab
 set shiftwidth=4
 set autoindent
 
+set guioptions-=T   " disable toolbar
+set guioptions-=m   " and menu
+
 call pathogen#infect()
 
 " setup color scheme and font
