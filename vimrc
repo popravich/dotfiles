@@ -12,7 +12,7 @@ call pathogen#infect()
 " setup color scheme and font
 colorscheme desert
 set cc=80
-hi ColorColumn ctermbg=black guibg=black
+hi ColorColumn ctermbg=red guibg=black
 set nowrap
 set guifont=Monospace\ 9
 
@@ -23,7 +23,7 @@ hi CurWord cterm=underline gui=underline
 autocmd CursorMoved * exe printf('match CurWord /%s/', escape(printf('\<%s\>', expand('<cword>')), '[]/'))
 
 " hide *.pyc files in netrw view
-let g:netrw_list_hide= '^.*\.pyc'
+let g:netrw_list_hide= '^.*\.pyc,.*\.sw[op]'
 
 
 " read from template (func_test_tmpl.py, unit_test_tmpl.py)
@@ -31,3 +31,6 @@ autocmd BufNewFile * silent! 0r ~/.vim/templates/%:h:h:t_test_tmpl.%:e
 
 " map F5 to :redraw!
 map <F5> :redraw!<Enter>
+
+" typescript ftdetect
+autocmd BufNewFile,BufRead *.ts set filetype=typescript
