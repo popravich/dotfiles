@@ -1,15 +1,15 @@
-[submodule "deps/pathogen"]
-	path = deps/pathogen
+[submodule ".vim/deps/pathogen"]
+	path = .vim/deps/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "deps/vim-coffee-script"]
-	path = deps/vim-coffee-script
+[submodule ".vim/deps/vim-coffee-script"]
+	path = .vim/deps/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "deps/vim-fugitive"]
-	path = deps/vim-fugitive
+[submodule ".vim/deps/vim-fugitive"]
+	path = .vim/deps/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "deps/vim-less"]
-	path = deps/vim-less
+[submodule ".vim/deps/vim-less"]
+	path = .vim/deps/vim-less
 	url = git://github.com/groenewege/vim-less.git
-[submodule "deps/vim-markdown"]
-	path = deps/vim-markdown
+[submodule ".vim/deps/vim-markdown"]
+	path = .vim/deps/vim-markdown
 	url = git://github.com/hallison/vim-markdown.git
