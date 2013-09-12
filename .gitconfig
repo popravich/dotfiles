@@ -1,0 +1,17 @@
+[alias]
+        st = status -uno
+        tree = log --oneline --graph --decorate
+        maybe = add -p
+[user]
+	name = Alexey Popravka
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[github]
+	user = popravich
+[core]
+	excludesfile = /home/alexey/.gitignore_global
+[push]
+	default = upstream
