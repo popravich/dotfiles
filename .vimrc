@@ -34,3 +34,4 @@ map <F5> :redraw!<Enter>
 
 " typescript ftdetect
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
+autocmd BufNewFile,BufRead *.as set filetype=actionscript
