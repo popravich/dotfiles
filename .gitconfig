@@ -1,5 +1,6 @@
 [alias]
         st = status -uno
+        sst = status -unormal
         tree = log --oneline --graph --decorate
         maybe = add -p
 [user]
