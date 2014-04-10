@@ -21,7 +21,7 @@ set guifont=Monospace\ 9
 " Highligh a word under cursor
 " autocmd CursorMoved * exe printf('match IncSearch /\<%s\>/', expand('<cword>'))
 hi CurWord cterm=underline gui=underline
-autocmd CursorMoved * exe printf('match CurWord /%s/', escape(printf('\<%s\>', expand('<cword>')), '[]/'))
+autocmd CursorMoved * exe printf('match CurWord /%s/', escape(printf('\<%s\>', expand('<cword>')), '[]/~*'))
 
 " hide *.pyc files in netrw view
 let g:netrw_list_hide= '^.*\.pyc,.*\.sw[op]'
