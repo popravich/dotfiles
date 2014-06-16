@@ -8,6 +8,8 @@ set autoindent
 set guioptions-=T   " disable toolbar
 set guioptions-=m   " and menu
 
+set rtp+=~/.vim/deps/Vundle.vim
+
 call pathogen#infect()
 
 " setup color scheme and font
@@ -39,3 +41,14 @@ autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
 " makefile fix
 autocmd FileType make setlocal noexpandtab
+
+" Vundle setup
+call vundle#begin()
+" Plugins list
+Plugin 'file:///home/alexey/.vim/deps/vim-coffee-script'
+Plugin 'file:///home/alexey/.vim/deps/vim-fugitive'
+Plugin 'file:///home/alexey/.vim/deps/vim-less'
+Plugin 'file:///home/alexey/.vim/deps/vim-markdown'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+call vundle#end()

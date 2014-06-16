@@ -13,3 +13,6 @@
 [submodule ".vim/deps/vim-markdown"]
 	path = .vim/deps/vim-markdown
 	url = git://github.com/hallison/vim-markdown.git
+[submodule ".vim/deps/Vundle.vim"]
+	path = .vim/deps/Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim
