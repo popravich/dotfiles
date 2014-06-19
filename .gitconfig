@@ -17,3 +17,6 @@
 	excludesfile = /home/alexey/.gitignore_global
 [push]
 	default = upstream
+
+[url "git@github.com"]
+    insteadOf = github
