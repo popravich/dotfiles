@@ -1,18 +1,3 @@
-[submodule ".vim/deps/pathogen"]
-	path = .vim/deps/pathogen
-	url = https://github.com/tpope/vim-pathogen.git
-[submodule ".vim/deps/vim-coffee-script"]
-	path = .vim/deps/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule ".vim/deps/vim-fugitive"]
-	path = .vim/deps/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule ".vim/deps/vim-less"]
-	path = .vim/deps/vim-less
-	url = git://github.com/groenewege/vim-less.git
-[submodule ".vim/deps/vim-markdown"]
-	path = .vim/deps/vim-markdown
-	url = git://github.com/hallison/vim-markdown.git
 [submodule ".vim/deps/Vundle.vim"]
 	path = .vim/deps/Vundle.vim
 	url = https://github.com/gmarik/Vundle.vim

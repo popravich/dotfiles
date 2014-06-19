@@ -45,10 +45,16 @@ autocmd FileType make setlocal noexpandtab
 " Vundle setup
 call vundle#begin()
 " Plugins list
-Plugin 'file:///home/alexey/.vim/deps/vim-coffee-script'
-Plugin 'file:///home/alexey/.vim/deps/vim-fugitive'
-Plugin 'file:///home/alexey/.vim/deps/vim-less'
-Plugin 'file:///home/alexey/.vim/deps/vim-markdown'
+Plugin 'tpope/vim-pathogen'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-fugitive'
+Plugin 'groenewege/vim-less'
+Plugin 'hallison/vim-markdown'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
+" obsolete plugins used as submodules
+" Plugin 'file:///home/alexey/.vim/deps/vim-coffee-script'
+" Plugin 'file:///home/alexey/.vim/deps/vim-fugitive'
+" Plugin 'file:///home/alexey/.vim/deps/vim-less'
+" Plugin 'file:///home/alexey/.vim/deps/vim-markdown'
 call vundle#end()
