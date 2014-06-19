@@ -3,6 +3,7 @@
         sst = status -unormal
         tree = log --oneline --graph --decorate
         maybe = add -p
+        bad = checkout -p
 [user]
 	name = Alexey Popravka
 [color]
