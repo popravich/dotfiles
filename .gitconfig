@@ -20,3 +20,5 @@
 
 [url "git@github.com"]
     insteadOf = github
+[url "git@bitbucket.org"]
+    insteadOf = bitbucket
