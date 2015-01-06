@@ -4,6 +4,8 @@
         tree = log --oneline --graph --decorate
         maybe = add -p
         bad = checkout -p
+        dd = diff
+        dc = diff --cached
 [user]
 	name = Alexey Popravka
 [color]
