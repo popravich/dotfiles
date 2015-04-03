@@ -52,6 +52,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'hallison/vim-markdown'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'gmarik/Vundle.vim'
 " obsolete plugins used as submodules
 " Plugin 'file:///home/alexey/.vim/deps/vim-coffee-script'
 " Plugin 'file:///home/alexey/.vim/deps/vim-fugitive'
