@@ -1,3 +1,7 @@
 .netrwhist
 *.swp
 *.swo
+
+# home dotfiles
+.*
+dev
