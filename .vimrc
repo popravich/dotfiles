@@ -59,3 +59,5 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'file:///home/alexey/.vim/deps/vim-less'
 " Plugin 'file:///home/alexey/.vim/deps/vim-markdown'
 call vundle#end()
+
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
