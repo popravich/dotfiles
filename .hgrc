@@ -1,0 +1,19 @@
+[extensions]
+pager =
+color =
+graphlog =
+
+[color]
+status.modified = blue bold
+status.added = green
+status.removed = red
+status.deleted = cyan
+status.unknown = magenta
+status.ignored = black bold
+
+[pager]
+pager = LESS='FRX' less
+attend = log diff tree
+
+[alias]
+tree = log -G
