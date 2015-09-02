@@ -2,6 +2,7 @@
 pager =
 color =
 graphlog =
+rebase =
 
 [color]
 status.modified = blue bold
