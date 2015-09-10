@@ -18,3 +18,4 @@ attend = log diff tree
 
 [alias]
 tree = log -G
+diff = diff -g
