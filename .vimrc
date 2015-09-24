@@ -30,7 +30,7 @@ let g:netrw_list_hide= '^.*\.pyc,.*\.sw[op]'
 
 
 " read from template (func_test_tmpl.py, unit_test_tmpl.py)
-autocmd BufNewFile * silent! 0r ~/.vim/templates/%:h:h:t_test_tmpl.%:e
+" autocmd BufNewFile * silent! 0r ~/.vim/templates/%:h:h:t_test_tmpl.%:e
 
 " map F5 to :redraw!
 map <F5> :redraw!<Enter>
@@ -39,8 +39,9 @@ map <F5> :redraw!<Enter>
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
-" makefile fix
+" FileType-specific options
 autocmd FileType make setlocal noexpandtab
+autocmd FileType yaml,html,javascript,coffee,lua setlocal expandtab autoindent tabstop=2 shiftwidth=2 softtabstop=2
 
 " Vundle setup
 call vundle#begin()
@@ -53,11 +54,6 @@ Plugin 'hallison/vim-markdown'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'gmarik/Vundle.vim'
-" obsolete plugins used as submodules
-" Plugin 'file:///home/alexey/.vim/deps/vim-coffee-script'
-" Plugin 'file:///home/alexey/.vim/deps/vim-fugitive'
-" Plugin 'file:///home/alexey/.vim/deps/vim-less'
-" Plugin 'file:///home/alexey/.vim/deps/vim-markdown'
 call vundle#end()
 
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']
