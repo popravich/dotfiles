@@ -54,6 +54,8 @@ Plugin 'hallison/vim-markdown'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'gmarik/Vundle.vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'rking/ag.vim'
 call vundle#end()
 
 let g:syntastic_python_checkers = ['pyflakes', 'pep8']

@@ -4,6 +4,7 @@ color =
 graphlog =
 rebase =
 shelve =
+record =
 
 [color]
 status.modified = blue bold
@@ -15,11 +16,12 @@ status.ignored = black bold
 
 [pager]
 pager = LESS='FRX' less
-attend = log diff tree
+attend = log diff tree show
 
 [alias]
 tree = log -G
 diff = diff -g
+show = diff -c tip
 
 [defaults]
 incoming = -G --stat

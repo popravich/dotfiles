@@ -11,3 +11,13 @@ mkpymodule(){
         echo "no path";
     fi;
 }
+
+# hl function for stands for `--help | less`
+
+hl(){
+    if [ "${1}" != "" ]; then
+        $1 --help | less;
+    else
+        echo 'hl -- is a wrapper for "$1 --help | less"';
+    fi;
+} && complete -A command -o default hl
