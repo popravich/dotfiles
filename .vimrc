@@ -26,7 +26,8 @@ hi CurWord cterm=underline gui=underline
 autocmd CursorMoved * exe printf('match CurWord /%s/', escape(printf('\<%s\>', expand('<cword>')), '[]/~*'))
 
 " hide *.pyc files in netrw view
-let g:netrw_list_hide= '^.*\.pyc,.*\.sw[op]'
+let g:netrw_list_hide = '^.*\.pyc,.*\.sw[op]'
+let g:netrw_liststyle = 1
 
 
 " read from template (func_test_tmpl.py, unit_test_tmpl.py)
