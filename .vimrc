@@ -43,6 +43,7 @@ autocmd BufNewFile,BufRead *.as set filetype=actionscript
 " FileType-specific options
 autocmd FileType make setlocal noexpandtab
 autocmd FileType yaml,html,javascript,coffee,lua setlocal expandtab autoindent tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType rst setlocal expandtab autoindent tabstop=3 shiftwidth=3 softtabstop=3
 
 " Vundle setup
 call vundle#begin()
