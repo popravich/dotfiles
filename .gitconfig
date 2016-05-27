@@ -1,11 +1,12 @@
 [alias]
-        st = status -uno
-        sst = status -unormal
-        tree = log --oneline --graph --format=format:'%C(auto)%h %d %s %C(dim)%cn%Creset, %C(dim)%C(cyan)%cr%Creset'
-        maybe = add -p
-        bad = checkout -p
-        dd = diff
-        dc = diff --cached
+    st = status -uno
+    sst = status -unormal
+    tree = log --oneline --graph --format=format:'%C(auto)%h %d %s %C(dim)%cn%Creset, %C(dim)%C(cyan)%cr%Creset'
+    maybe = add -p
+    bad = checkout -p
+    dd = diff
+    dc = diff --cached
+    changelog = !git tree $(git describe --tags | cut -d- -f1)^..HEAD
 [user]
 	name = Alexey Popravka
 [color]
