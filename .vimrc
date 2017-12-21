@@ -1,9 +1,13 @@
 
+syntax on
+" filetype indent plugin on
+
 set softtabstop=4
 set tabstop=4
 set expandtab
 set shiftwidth=4
 set autoindent
+set modeline
 
 set guioptions-=T   " disable toolbar
 set guioptions-=m   " and menu
@@ -42,7 +46,7 @@ autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
 " FileType-specific options
 autocmd FileType make setlocal noexpandtab
-autocmd FileType yaml,html,javascript,coffee,lua setlocal expandtab autoindent tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType yaml,html,css,javascript,coffee,lua setlocal expandtab autoindent tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType rst setlocal expandtab autoindent tabstop=3 shiftwidth=3 softtabstop=3
 
 " Vundle setup
@@ -58,6 +62,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'rking/ag.vim'
+Plugin 'cespare/vim-toml'
+Plugin 'jparise/vim-graphql'
+Plugin 'posva/vim-vue'
 call vundle#end()
 
 let g:syntastic_python_checkers = ['flake8']
@@ -66,3 +73,6 @@ let g:syntastic_always_populate_loc_list=1
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
+
+let g:syntastic_rust_checkers = ['cargo']
+let g:syntastic_rust_cargo_exec = '~/.cargo/bin/cargo'
