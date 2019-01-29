@@ -40,6 +40,9 @@ let g:netrw_liststyle = 1
 " map F5 to :redraw!
 map <F5> :redraw!<Enter>
 
+" autoset current directory to project's root
+autocmd BufEnter * silent! exec "lcd " . system('dirname $(cd '.expand('%:h').' && git rev-parse --absolute-git-dir)')
+
 " typescript ftdetect
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
