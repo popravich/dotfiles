@@ -1,6 +1,4 @@
-
 syntax on
-" filetype indent plugin on
 
 set softtabstop=4
 set tabstop=4
@@ -12,78 +10,94 @@ set modeline
 set guioptions-=T   " disable toolbar
 set guioptions-=m   " and menu
 
-set rtp+=~/.vim/deps/Vundle.vim
-
-call pathogen#infect()
-
 " setup color scheme and font
 colorscheme desert
 set cc=80
 hi ColorColumn ctermbg=red guibg=black
 set nowrap
-set guifont=Monospace\ 9
+" set guifont=Monospace\ 9
+" set guifont=Ubuntu\ Mono\ 13
+set guifont=DejaVu\ Sans\ Mono\ 9
 
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved
+set signcolumn=yes
 
-" Highligh a word under cursor
-" autocmd CursorMoved * exe printf('match IncSearch /\<%s\>/', expand('<cword>'))
-hi CurWord cterm=underline gui=underline
-autocmd CursorMoved * exe printf('match CurWord /%s/', escape(printf('\<%s\>', expand('<cword>')), '[]/~*'))
+autocmd FileType yaml,html,css,javascript,coffee,lua,vue setlocal expandtab autoindent tabstop=2 shiftwidth=2 softtabstop=2
+
+" Vim-plug
+call plug#begin()
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+
+call plug#end()
+
 
 " hide *.pyc files in netrw view
 let g:netrw_list_hide = '^.*\.pyc,.*\.sw[op]'
+let g:netrw_sort_sequence = '[\/],\<core\%(\.\d\+\)\=,\.[a-np-z]$,\.h$,\.c$,\.cpp$,*,\.o$,\.obj$,\.info$,\.swp$,\.bak$,\~$'
 let g:netrw_liststyle = 1
-
-
-" read from template (func_test_tmpl.py, unit_test_tmpl.py)
-" autocmd BufNewFile * silent! 0r ~/.vim/templates/%:h:h:t_test_tmpl.%:e
-
-" map F5 to :redraw!
-map <F5> :redraw!<Enter>
 
 " autoset current directory to project's root
 autocmd BufEnter * silent! exec "lcd " . system('dirname $(cd '.expand('%:h').' && git rev-parse --absolute-git-dir)')
 
-" typescript ftdetect
-autocmd BufNewFile,BufRead *.ts set filetype=typescript
-autocmd BufNewFile,BufRead *.as set filetype=actionscript
-
 " FileType-specific options
-autocmd FileType make setlocal noexpandtab
-autocmd FileType yaml,html,css,javascript,coffee,lua,vue setlocal expandtab autoindent tabstop=2 shiftwidth=2 softtabstop=2
-autocmd FileType rst setlocal expandtab autoindent tabstop=3 shiftwidth=3 softtabstop=3
-autocmd FileType go setlocal noexpandtab autoindent
+autocmd FileType rust setlocal cc=99
 
-" filetype plugin indent on
 
-" Vundle setup
-call vundle#begin()
-" Plugins list
-Plugin 'tpope/vim-pathogen'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'tpope/vim-fugitive'
-Plugin 'groenewege/vim-less'
-Plugin 'hallison/vim-markdown'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'rking/ag.vim'
-Plugin 'cespare/vim-toml'
-Plugin 'jparise/vim-graphql'
-Plugin 'posva/vim-vue'
-Plugin 'vim-scripts/mako.vim'
-Plugin 'universal-ctags/ctags'
-Plugin 'fatih/vim-go'
-call vundle#end()
+let g:airline_theme="base16"
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#hunks#coc_git = 1
+let g:airline_powerline_fonts = 1
 
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_always_populate_loc_list=1
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
 
-let g:syntastic_rust_checkers = ['cargo']
-" let g:syntastic_rust_cargo_exec = '~/.cargo/bin/cargo'
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
-set tags=./**/tags,./**2/tags,./tags,./TAGS,tags,TAGS
+" Use tab for trigger completion with characters ahead and navigate
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
